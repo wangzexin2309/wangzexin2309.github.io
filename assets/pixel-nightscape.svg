@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Animated pixel nightscape background</title>
+  <desc id="desc">A dark pixel-art cyber nightscape with moving stars, neon grid lines, floating blocks, and a city silhouette.</desc>
+  <style>
+    svg {
+      background: #0d1117;
+      shape-rendering: crispEdges;
+      overflow: hidden;
+    }
+
+    .stars-a {
+      animation: stars-a 18s linear infinite;
+    }
+
+    .stars-b {
+      animation: stars-b 26s linear infinite;
+      opacity: .72;
+    }
+
+    .grid {
+      animation: grid-slide 4s linear infinite;
+      opacity: .52;
+    }
+
+    .blocks {
+      animation: float-blocks 6s steps(6) infinite;
+    }
+
+    .beam {
+      animation: beam-scan 5s linear infinite;
+      opacity: .75;
+    }
+
+    .city {
+      animation: city-glow 2.6s steps(2) infinite;
+    }
+
+    .pixel {
+      animation: blink 1.8s steps(2) infinite;
+    }
+
+    .p2 {
+      animation-delay: .35s;
+    }
+
+    .p3 {
+      animation-delay: .8s;
+    }
+
+    @keyframes stars-a {
+      from { transform: translateX(0); }
+      to { transform: translateX(-240px); }
+    }
+
+    @keyframes stars-b {
+      from { transform: translateX(0); }
+      to { transform: translateX(-360px); }
+    }
+
+    @keyframes grid-slide {
+      from { transform: translateY(0); }
+      to { transform: translateY(24px); }
+    }
+
+    @keyframes float-blocks {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(0, -12px); }
+    }
+
+    @keyframes beam-scan {
+      0% { transform: translateX(-360px); }
+      100% { transform: translateX(1320px); }
+    }
+
+    @keyframes city-glow {
+      0%, 100% { opacity: .92; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes blink {
+      0%, 40% { opacity: .25; }
+      41%, 100% { opacity: 1; }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#070a13"/>
+      <stop offset=".55" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+
+    <linearGradient id="beam" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#00e5ff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#00e5ff" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#00e5ff" stop-opacity="0"/>
+    </linearGradient>
+
+    <pattern id="grid-lines" width="48" height="24" patternUnits="userSpaceOnUse">
+      <path d="M0 23H48M0 0V24" fill="none" stroke="#00e5ff" stroke-width="1" opacity=".36"/>
+    </pattern>
+
+    <g id="star-set">
+      <rect x="24" y="42" width="6" height="6" fill="#ffffff"/>
+      <rect x="132" y="78" width="4" height="4" fill="#00e5ff"/>
+      <rect x="246" y="36" width="6" height="6" fill="#78ffd6"/>
+      <rect x="388" y="98" width="4" height="4" fill="#ffffff"/>
+      <rect x="520" y="58" width="6" height="6" fill="#00e5ff"/>
+      <rect x="676" y="116" width="4" height="4" fill="#78ffd6"/>
+      <rect x="822" y="48" width="6" height="6" fill="#ffffff"/>
+      <rect x="970" y="88" width="4" height="4" fill="#00e5ff"/>
+      <rect x="1118" y="34" width="6" height="6" fill="#78ffd6"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="360" fill="url(#sky)"/>
+  <rect y="230" width="1200" height="130" fill="#0f172a"/>
+
+  <g class="stars-a">
+    <use href="#star-set" x="0"/>
+    <use href="#star-set" x="1200"/>
+  </g>
+  <g class="stars-b">
+    <use href="#star-set" x="180" y="28"/>
+    <use href="#star-set" x="1380" y="28"/>
+  </g>
+
+  <g class="beam">
+    <rect x="0" y="132" width="340" height="10" fill="url(#beam)"/>
+    <rect x="80" y="148" width="180" height="6" fill="url(#beam)" opacity=".6"/>
+  </g>
+
+  <g class="blocks">
+    <rect x="116" y="154" width="28" height="28" fill="#1f6feb"/>
+    <rect x="144" y="154" width="28" height="28" fill="#00e5ff"/>
+    <rect x="172" y="154" width="28" height="28" fill="#1f6feb"/>
+    <rect x="912" y="130" width="24" height="24" fill="#00e5ff"/>
+    <rect x="936" y="130" width="24" height="24" fill="#78ffd6"/>
+    <rect x="984" y="178" width="28" height="28" fill="#1f6feb"/>
+  </g>
+
+  <g class="city">
+    <rect x="0" y="210" width="1200" height="18" fill="#1f2937"/>
+    <rect x="52" y="158" width="70" height="70" fill="#111827"/>
+    <rect x="140" y="182" width="54" height="46" fill="#172033"/>
+    <rect x="226" y="142" width="88" height="86" fill="#111827"/>
+    <rect x="350" y="172" width="66" height="56" fill="#172033"/>
+    <rect x="456" y="128" width="92" height="100" fill="#111827"/>
+    <rect x="600" y="166" width="74" height="62" fill="#172033"/>
+    <rect x="724" y="136" width="82" height="92" fill="#111827"/>
+    <rect x="846" y="184" width="56" height="44" fill="#172033"/>
+    <rect x="938" y="150" width="86" height="78" fill="#111827"/>
+    <rect x="1070" y="176" width="72" height="52" fill="#172033"/>
+
+    <rect class="pixel" x="72" y="174" width="10" height="10" fill="#00e5ff"/>
+    <rect class="pixel p2" x="96" y="194" width="10" height="10" fill="#78ffd6"/>
+    <rect class="pixel p3" x="250" y="160" width="10" height="10" fill="#00e5ff"/>
+    <rect class="pixel" x="284" y="186" width="10" height="10" fill="#78ffd6"/>
+    <rect class="pixel p2" x="488" y="152" width="10" height="10" fill="#00e5ff"/>
+    <rect class="pixel p3" x="524" y="184" width="10" height="10" fill="#78ffd6"/>
+    <rect class="pixel" x="752" y="158" width="10" height="10" fill="#00e5ff"/>
+    <rect class="pixel p2" x="782" y="194" width="10" height="10" fill="#78ffd6"/>
+    <rect class="pixel p3" x="972" y="170" width="10" height="10" fill="#00e5ff"/>
+    <rect class="pixel" x="1004" y="198" width="10" height="10" fill="#78ffd6"/>
+    <rect class="pixel p2" x="1104" y="192" width="10" height="10" fill="#00e5ff"/>
+  </g>
+
+  <g class="grid">
+    <rect x="-48" y="230" width="1296" height="154" fill="url(#grid-lines)"/>
+  </g>
+
+  <path d="M0 246H1200" stroke="#00e5ff" stroke-width="3" opacity=".72"/>
+  <rect x="0" y="348" width="1200" height="12" fill="#00e5ff" opacity=".2"/>
+</svg>
