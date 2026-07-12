@@ -1,53 +1,6 @@
 const USERNAME = "wangzexin2309";
 const REPOS_PER_PAGE = 4;
 
-const FALLBACK_USER = {
-  login: "wangzexin2309",
-  avatar_url: "https://avatars.githubusercontent.com/u/153582083?v=4",
-  public_repos: 4,
-  followers: 0,
-  following: 3
-};
-
-const FALLBACK_REPOS = [
-  {
-    name: "2309website",
-    html_url: "https://github.com/wangzexin2309/2309website",
-    description: "It is the website of HUST CS 2309.",
-    language: "HTML",
-    stargazers_count: 0,
-    updated_at: "2026-07-12T00:00:00Z",
-    fork: false
-  },
-  {
-    name: "wangzexin2309.github.io",
-    html_url: "https://github.com/wangzexin2309/wangzexin2309.github.io",
-    description: "Public GitHub repository.",
-    language: "HTML",
-    stargazers_count: 0,
-    updated_at: "2026-07-12T00:00:00Z",
-    fork: false
-  },
-  {
-    name: "medrax-reproduction",
-    html_url: "https://github.com/wangzexin2309/medrax-reproduction",
-    description: "Public GitHub repository.",
-    language: "Python",
-    stargazers_count: 0,
-    updated_at: "2026-07-12T00:00:00Z",
-    fork: false
-  },
-  {
-    name: "fr3-peg-in-hole-mujoco",
-    html_url: "https://github.com/wangzexin2309/fr3-peg-in-hole-mujoco",
-    description: "Public GitHub repository.",
-    language: "Python",
-    stargazers_count: 0,
-    updated_at: "2026-07-12T00:00:00Z",
-    fork: false
-  }
-];
-
 const avatar = document.querySelector("#avatar");
 const profileName = document.querySelector("#profile-name");
 const repoCount = document.querySelector("#repo-count");
@@ -65,7 +18,7 @@ async function fetchJson(url) {
     headers: { Accept: "application/vnd.github+json" }
   });
   if (!response.ok) {
-    throw new Error(`GitHub API returned ${response.status}`);
+    throw new Error(`GitHub API returned ${response.status} for ${url}`);
   }
   return response.json();
 }
@@ -126,7 +79,7 @@ function renderRepoControls() {
   const pageButtons = Array.from({ length: totalPages }, (_, index) => {
     const page = index + 1;
     const active = page === currentRepoPage ? " active" : "";
-    return `<button class="page-button${active}" type="button" data-page="${page}" aria-label="Go to repository page ${page}">${page}</button>`;
+    return `<button class="page-button${active}" type="button" data-page="${page}" data-page-number="true" aria-label="Go to repository page ${page}">${page}</button>`;
   }).join("");
 
   repoControls.innerHTML = `
@@ -183,6 +136,25 @@ function renderRepos(repos) {
   renderReposPage();
 }
 
+function renderUnavailableState(error) {
+  profileName.textContent = USERNAME;
+  repoCount.textContent = "--";
+  followers.textContent = "--";
+  following.textContent = "--";
+  mainLanguage.textContent = "--";
+  repoGrid.innerHTML = `
+    <article class="repo-card unavailable-card">
+      <h3>GitHub data unavailable</h3>
+      <p>The public GitHub API did not return live repository data right now. Open GitHub to view the current repository list.</p>
+      <div class="repo-meta">
+        <span>Live API failed</span>
+        <span>${escapeHtml(error.message)}</span>
+      </div>
+    </article>
+  `;
+  repoControls.innerHTML = `<a class="page-button" href="https://github.com/${USERNAME}?tab=repositories">Open repositories</a>`;
+}
+
 async function loadGitHubData() {
   try {
     const [user, repos] = await Promise.all([
@@ -199,14 +171,7 @@ async function loadGitHubData() {
     mainLanguage.textContent = findMainLanguage(repos);
     renderRepos(repos);
   } catch (error) {
-    avatar.src = FALLBACK_USER.avatar_url;
-    avatar.alt = `${FALLBACK_USER.login} GitHub avatar`;
-    profileName.textContent = FALLBACK_USER.login;
-    repoCount.textContent = FALLBACK_USER.public_repos;
-    followers.textContent = FALLBACK_USER.followers;
-    following.textContent = FALLBACK_USER.following;
-    mainLanguage.textContent = findMainLanguage(FALLBACK_REPOS);
-    renderRepos(FALLBACK_REPOS);
+    renderUnavailableState(error);
   }
 }
 
