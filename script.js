@@ -39,6 +39,10 @@ async function fetchAllRepos() {
   }
 }
 
+async function fetchCachedData() {
+  return fetchJson("assets/github-data.json");
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -136,42 +140,48 @@ function renderRepos(repos) {
   renderReposPage();
 }
 
-function renderUnavailableState(error) {
-  profileName.textContent = USERNAME;
-  repoCount.textContent = "--";
-  followers.textContent = "--";
-  following.textContent = "--";
-  mainLanguage.textContent = "--";
-  repoGrid.innerHTML = `
-    <article class="repo-card unavailable-card">
-      <h3>GitHub data unavailable</h3>
-      <p>The public GitHub API did not return live repository data right now. Open GitHub to view the current repository list.</p>
-      <div class="repo-meta">
-        <span>Live API failed</span>
-        <span>${escapeHtml(error.message)}</span>
-      </div>
-    </article>
-  `;
-  repoControls.innerHTML = `<a class="page-button" href="https://github.com/${USERNAME}?tab=repositories">Open repositories</a>`;
+function renderGitHubData(user, repos) {
+  avatar.src = user.avatar_url;
+  avatar.alt = `${user.login} GitHub avatar`;
+  profileName.textContent = user.login;
+  repoCount.textContent = user.public_repos;
+  followers.textContent = user.followers;
+  following.textContent = user.following;
+  mainLanguage.textContent = findMainLanguage(repos);
+  renderRepos(repos);
 }
 
 async function loadGitHubData() {
+  let hasCachedData = false;
+
+  try {
+    const cached = await fetchCachedData();
+    renderGitHubData(cached.user, cached.repos);
+    hasCachedData = true;
+  } catch (error) {
+    profileName.textContent = USERNAME;
+  }
+
   try {
     const [user, repos] = await Promise.all([
       fetchJson(`https://api.github.com/users/${USERNAME}`),
       fetchAllRepos()
     ]);
-
-    avatar.src = user.avatar_url;
-    avatar.alt = `${user.login} GitHub avatar`;
-    profileName.textContent = user.login;
-    repoCount.textContent = user.public_repos;
-    followers.textContent = user.followers;
-    following.textContent = user.following;
-    mainLanguage.textContent = findMainLanguage(repos);
-    renderRepos(repos);
+    renderGitHubData(user, repos);
   } catch (error) {
-    renderUnavailableState(error);
+    if (!hasCachedData) {
+      repoGrid.innerHTML = `
+        <article class="repo-card unavailable-card">
+          <h3>GitHub data unavailable</h3>
+          <p>GitHub data could not be loaded right now. Open GitHub to view the current repository list.</p>
+          <div class="repo-meta">
+            <span>Data unavailable</span>
+            <span>${escapeHtml(error.message)}</span>
+          </div>
+        </article>
+      `;
+      repoControls.innerHTML = `<a class="page-button" href="https://github.com/${USERNAME}?tab=repositories">Open repositories</a>`;
+    }
   }
 }
 

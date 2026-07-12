@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-07-12T00:00:00.000Z",
+  "user": {
+    "login": "wangzexin2309",
+    "avatar_url": "https://avatars.githubusercontent.com/u/153582083?v=4",
+    "public_repos": 6,
+    "followers": 0,
+    "following": 3
+  },
+  "repos": [
+    {
+      "name": "wangzexin2309.github.io",
+      "html_url": "https://github.com/wangzexin2309/wangzexin2309.github.io",
+      "description": "2309website draft",
+      "language": "HTML",
+      "stargazers_count": 0,
+      "updated_at": "2026-07-12T00:00:00Z",
+      "fork": false
+    },
+    {
+      "name": "wangzexin2309",
+      "html_url": "https://github.com/wangzexin2309/wangzexin2309",
+      "description": "GitHub profile repository.",
+      "language": "Markdown",
+      "stargazers_count": 0,
+      "updated_at": "2026-07-12T00:00:00Z",
+      "fork": false
+    },
+    {
+      "name": "fr3-peg-in-hole-mujoco",
+      "html_url": "https://github.com/wangzexin2309/fr3-peg-in-hole-mujoco",
+      "description": "MuJoCo-based FR3 peg-in-hole simulation repository.",
+      "language": "Python",
+      "stargazers_count": 0,
+      "updated_at": "2026-07-12T00:00:00Z",
+      "fork": false
+    },
+    {
+      "name": "medrax-reproduction",
+      "html_url": "https://github.com/wangzexin2309/medrax-reproduction",
+      "description": "MedRAX / ChestAgentBench reproduction and extension repository.",
+      "language": "Python",
+      "stargazers_count": 0,
+      "updated_at": "2026-07-12T00:00:00Z",
+      "fork": false
+    },
+    {
+      "name": "hust-cs-experiment-reports",
+      "html_url": "https://github.com/wangzexin2309/hust-cs-experiment-reports",
+      "description": "Course experiment reports, project reports, and code repository.",
+      "language": "HTML",
+      "stargazers_count": 0,
+      "updated_at": "2026-07-12T00:00:00Z",
+      "fork": false
+    },
+    {
+      "name": "2309website",
+      "html_url": "https://github.com/wangzexin2309/2309website",
+      "description": "It is the website of HUST CS 2309.",
+      "language": "HTML",
+      "stargazers_count": 0,
+      "updated_at": "2026-07-12T00:00:00Z",
+      "fork": false
+    }
+  ]
+}
