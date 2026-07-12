@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T00:00:00.000Z",
+  "generated_at": "2026-07-12T06:41:06.549Z",
   "user": {
     "login": "wangzexin2309",
     "avatar_url": "https://avatars.githubusercontent.com/u/153582083?v=4",
@@ -14,43 +14,43 @@
       "description": "2309website draft",
       "language": "HTML",
       "stargazers_count": 0,
-      "updated_at": "2026-07-12T00:00:00Z",
+      "updated_at": "2026-07-12T06:41:04Z",
       "fork": false
     },
     {
       "name": "wangzexin2309",
       "html_url": "https://github.com/wangzexin2309/wangzexin2309",
-      "description": "GitHub profile repository.",
-      "language": "Markdown",
+      "description": "Public GitHub repository.",
+      "language": "Code",
       "stargazers_count": 0,
-      "updated_at": "2026-07-12T00:00:00Z",
+      "updated_at": "2026-07-12T06:16:43Z",
       "fork": false
     },
     {
       "name": "fr3-peg-in-hole-mujoco",
       "html_url": "https://github.com/wangzexin2309/fr3-peg-in-hole-mujoco",
-      "description": "MuJoCo-based FR3 peg-in-hole simulation repository.",
+      "description": "本项目基于 MuJoCo 构建 Franka FR3 棒插孔仿真任务，训练 MLP 策略网络完成 2 cm 圆柱 peg 插入 2.3 cm 孔的控制任务。",
       "language": "Python",
       "stargazers_count": 0,
-      "updated_at": "2026-07-12T00:00:00Z",
+      "updated_at": "2026-07-12T03:23:42Z",
       "fork": false
     },
     {
       "name": "medrax-reproduction",
       "html_url": "https://github.com/wangzexin2309/medrax-reproduction",
-      "description": "MedRAX / ChestAgentBench reproduction and extension repository.",
+      "description": "本项目完成MedRAX / ChestAgentBench 胸片 CXR 医疗推理 Agent 的复现、分析和扩展实验。",
       "language": "Python",
       "stargazers_count": 0,
-      "updated_at": "2026-07-12T00:00:00Z",
+      "updated_at": "2026-07-12T03:22:20Z",
       "fork": false
     },
     {
       "name": "hust-cs-experiment-reports",
       "html_url": "https://github.com/wangzexin2309/hust-cs-experiment-reports",
-      "description": "Course experiment reports, project reports, and code repository.",
+      "description": "本仓库整理了华中科技大学大数据专业部分课程的实验报告、课程报告和项目代码，主要用于个人学习记录、资料归档与复习参考。",
       "language": "HTML",
       "stargazers_count": 0,
-      "updated_at": "2026-07-12T00:00:00Z",
+      "updated_at": "2026-07-12T03:20:17Z",
       "fork": false
     },
     {
@@ -59,7 +59,7 @@
       "description": "It is the website of HUST CS 2309.",
       "language": "HTML",
       "stargazers_count": 0,
-      "updated_at": "2026-07-12T00:00:00Z",
+      "updated_at": "2023-12-12T09:04:45Z",
       "fork": false
     }
   ]
