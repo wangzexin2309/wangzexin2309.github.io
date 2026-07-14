@@ -1,20 +1,29 @@
 {
-  "generated_at": "2026-07-14T13:18:04.456Z",
+  "generated_at": "2026-07-14T17:04:49.433Z",
   "user": {
     "login": "wangzexin2309",
     "avatar_url": "https://avatars.githubusercontent.com/u/153582083?v=4",
-    "public_repos": 6,
+    "public_repos": 7,
     "followers": 0,
     "following": 3
   },
   "repos": [
+    {
+      "name": "AI-Infra",
+      "html_url": "https://github.com/wangzexin2309/AI-Infra",
+      "description": "Public GitHub repository.",
+      "language": "Python",
+      "stargazers_count": 0,
+      "updated_at": "2026-07-14T16:55:34Z",
+      "fork": false
+    },
     {
       "name": "wangzexin2309.github.io",
       "html_url": "https://github.com/wangzexin2309/wangzexin2309.github.io",
       "description": "2309website draft",
       "language": "HTML",
       "stargazers_count": 0,
-      "updated_at": "2026-07-14T07:51:15Z",
+      "updated_at": "2026-07-14T13:18:58Z",
       "fork": false
     },
     {
